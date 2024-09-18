@@ -2,10 +2,10 @@ html,body {
     margin: 0;
     padding: 0;
 
-    height: 100%;
+    height: 100%; /* Por algum motivo não funciona apenas com heigh/min-height */
     min-height: 100%;
 
-    overflow: auto; /*Permite que tenha um scroll na página*/
+    overflow: auto; /* Permite que tenha um scroll na página */
 }
 
 body {
@@ -14,55 +14,74 @@ body {
     display: flex;
     flex-direction: column;
 
-    min-height: 100vh;
+    min-height: 100vh; /* Garante que o body preencha toda a altura da tela */
 }
 
 header, footer {
-    width: 100%;
+    background-color: rgb(114, 187, 252); 
+
+    flex-shrink: 0; /*Impede que ele encolha quando o conteúdo fica maior */
+
+    width: 100%; /* As tags ocupam toda a largura disponível */
     height: 12vh;
-
-    background-color: rgb(114, 187, 252);
-
-    flex-shrink: 0; /*Impede que ele encolha*/
 }
 
 main {
     background-color: aliceblue;
-    flex-grow: 1; /*Permite que ele cresça e ocupe o espaço que sobrou*/
-    width: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1; /* Permite que ele cresça e ocupe o espaço que sobrou */
+
+    width: 100%; /* A tag main ocupa toda a largura disponível */
 }
 
 .container {
+    background-color: black;
+
     display: flex;
-    flex-wrap: wrap; /*Joga os elementos que não couberam na próxima linha*/
+    flex-wrap: wrap; /* Joga os elementos que não couberam na próxima linha */
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
+    flex-grow: 1; /* Permite que ele cresça e ocupe o espaço que sobrou */
 
-    width: 70vw;
-    gap: 5vw; /*Espaço entre os frames*/
-    margin: 4vh 0;
+    row-gap: 3vw; /* Espaço entre os frames */
+    column-gap: 10vh; /* Espaço entre os frames */
 
-    background-color: black;
+    width: 70vw; /* Altura do container pai dos frames */
+    margin: 2vw 0; /* Margem superior e inferior dos frames */
 }
 
 .frame {
     background-color: blueviolet;
 
-    width: calc(45% - 5vw);
-    aspect-ratio: 1; /*Mantém a proporção de 1:1 da altura com a largura*/
+    width: 35%; 
+    /* A altura de cada frame será um calculo de 40% do espaço disponível menos o gap - calc(40% - 3vw) */
+    aspect-ratio: 1; /* Mantém a proporção de 1:1 da altura com a largura */
     box-sizing: border-box;
+    padding: 1rem;
 
     color: white;
     font-size: 24px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    
+}
+
+.painting {
+    background-color: yellow;
+
+    width: 95%;
+    aspect-ratio: 1;
+    margin: 1vw;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.copy {
+    align-self: self-end;
 }
 
 footer {
@@ -78,6 +97,15 @@ footer {
 
     .frame {
         width: 70%; /* Alinha as divs em uma única coluna */
-        font-size: 20px; /* Ajusta o tamanho da fonte para caber melhor em telas pequenas */
+    }
+
+    /*.copy {
+        margin-top: 8px;
+    }*/ 
+}
+
+@media (min-width: 1920px) {
+    .frame {
+        width: 20%;
     }
 }
