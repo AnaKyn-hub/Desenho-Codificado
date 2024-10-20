@@ -8,6 +8,11 @@ html,body {
     overflow: auto; /* Permite que tenha um scroll na página */
 }
 
+/* Coisas para melhorar:
+    - Painting está ficando torto e vazando
+    - Analisar se o menu está funcionando bem em ambas as telas
+*/
+
 body {
     background-color: aquamarine;
     
@@ -20,10 +25,14 @@ body {
 header, footer {
     background-color: rgb(114, 187, 252); 
 
-    flex-shrink: 0; /*Impede que ele encolha quando o conteúdo fica maior */
+     flex-shrink: 0;/*Impede que ele encolha quando o conteúdo fica maior */
 
     width: 100%; /* As tags ocupam toda a largura disponível */
-    height: 14vh;
+    height: 12vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 main {
@@ -37,7 +46,29 @@ main {
     width: 100%; /* A tag main ocupa toda a largura disponível */
 }
 
-.container {
+.menu {
+    width: 40vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
+    width: 60px;
+    aspect-ratio: 1;
+    margin-left: 2vw;
+}
+
+.container-arts {
     display: flex;
     flex-wrap: wrap; /* Joga os elementos que não couberam na próxima linha */
     justify-content: center;
@@ -116,6 +147,17 @@ footer {
 
     .frame {
         width: 70%; /* Alinha as divs em uma única coluna */
+    }
+
+    .menu {
+        width: 50vw; /* Aumenta o menu para ocupar quase toda a largura disponível */
+        justify-content: space-between; /* Ajusta os itens uniformemente */
+        flex-wrap: wrap; /* Quebra o menu em mais de uma linha, se necessário */
+    }
+
+    .menu a {
+        font-size: large; /* Diminui o tamanho da fonte */
+        padding: 0 15px; /* Ajusta os espaçamentos internos */
     }
 }
 
