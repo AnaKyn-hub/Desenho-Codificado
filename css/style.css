@@ -23,7 +23,7 @@ header, footer {
     flex-shrink: 0; /*Impede que ele encolha quando o conteúdo fica maior */
 
     width: 100%; /* As tags ocupam toda a largura disponível */
-    height: 12vh;
+    height: 14vh;
 }
 
 main {
@@ -38,8 +38,6 @@ main {
 }
 
 .container {
-    background-color: black;
-
     display: flex;
     flex-wrap: wrap; /* Joga os elementos que não couberam na próxima linha */
     justify-content: center;
@@ -49,8 +47,8 @@ main {
     row-gap: 3vw; /* Espaço entre os frames */
     column-gap: 10vh; /* Espaço entre os frames */
 
-    width: 70vw; /* Altura do container pai dos frames */
-    margin: 2vw 0; /* Margem superior e inferior dos frames */
+    width: 70vw; /* Largura do container pai dos frames */
+    margin: 3vw 0; /* Margem superior e inferior dos frames */
 }
 
 .frame {
@@ -62,12 +60,10 @@ main {
     box-sizing: border-box;
     padding: 1rem;
 
-    color: white;
-    font-size: 24px;
+    border-radius: 5px;
 
     display: flex;
     flex-direction: column;
-    
 }
 
 .painting {
@@ -75,13 +71,35 @@ main {
 
     width: 95%;
     aspect-ratio: 1;
-    margin: 1vw;
+    margin: 2vh 1vw;
     box-sizing: border-box;
-    align-self: center;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: x-large;
+    color: white;
+}
+
+.name {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .copy {
-    align-self: self-end;
+    background-color: rgba(0, 0, 0, 0.505);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+}
+
+.copy:hover {
+    background-color:  rgba(0, 0, 0, 0.685);
+    color: rgb(228, 228, 228);
 }
 
 footer {
@@ -93,17 +111,15 @@ footer {
     .container {
         width: 90vw; /* Aumenta um pouco a largura para telas pequenas */
         gap: 5vw; /* Diminui o espaçamento entre os quadrados */
+        margin: 6vw 0; /* Margem superior e inferior dos frames */
     }
 
     .frame {
         width: 70%; /* Alinha as divs em uma única coluna */
     }
-
-    /*.copy {
-        margin-top: 8px;
-    }*/ 
 }
 
+/* Media Query para telas grandes (widescreen) */
 @media (min-width: 1920px) {
     .frame {
         width: 20%;
